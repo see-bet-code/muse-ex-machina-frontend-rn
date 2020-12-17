@@ -2,9 +2,9 @@ import { createStore, combineReducers } from 'redux';
 // import pageReducer from '../reducers/pageReducer';
 import { applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { AppRegistry } from 'react-native';
+import {registerRootComponent} from 'expo'
 import React from 'react';
-import App from './src/App';
+import App from './App';
 import {name} from './app.json'
 import {Provider} from 'react-redux'
 
@@ -18,12 +18,12 @@ import {Provider} from 'react-redux'
 
 
 
-const store = null;
+// const store = null;
 
-const RNRedux = () => {
-  // <Provider store={store}>
+const ReduxApp = () => (
+  <Provider store={store}>
     <App />
-  // </Provider>
-}
+  </Provider>
+)
 
-AppRegistry.registerComponent(name, () => RNRedux)
+registerRootComponent(App)

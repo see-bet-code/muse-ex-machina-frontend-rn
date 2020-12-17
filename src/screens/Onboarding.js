@@ -44,6 +44,14 @@ export default class Onboarding extends React.Component {
                 onPress={() => navigation.navigate('App')}>
                 START SHOPPING
               </Button>
+              <Text color="white" size={10}>or</Text>
+              <Button
+                shadowless
+                style={styles.button}
+                color={materialTheme.COLORS.BUTTON_COLOR}
+                onPress={() => navigation.navigate('App')}>
+                REGISTER
+              </Button>
             </Block>
           </Block>
         </Block>

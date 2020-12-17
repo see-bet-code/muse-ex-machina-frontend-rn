@@ -17,10 +17,10 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import { Block, GalioProvider } from 'galio-framework';
 
-import { Images, products, materialTheme } from './constants';
+import { Images, products, materialTheme } from './src/constants';
 
 import { NavigationContainer } from '@react-navigation/native';
-import Screens from './navigation/Screens';
+import Screens from './src/navigation/Screens';
 
 // Before rendering any navigation stack
 import { enableScreens } from 'react-native-screens';
@@ -49,8 +49,19 @@ function cacheImages(images) {
 
 export default class App extends React.Component {
   state = {
-    isLoadingComplete: false,
+    isLoadingComplete: true,
   };
+
+  async componentDidMount() {
+    await Expo.Font.loadAsync({
+      Ionicons: require('./node_modules/react-native-vector-icons/Fonts/Ionicons.ttf'),
+      FontAwesome: require('./node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf'),
+      Entypo: require('./node_modules/react-native-vector-icons/Fonts/Entypo.ttf'),
+      EvilIcons: require('./node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf'),
+      Feather: require('./node_modules/react-native-vector-icons/Fonts/Feather.ttf'),
+      "Material Icons": require('./node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf'),
+  });
+  }
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
